@@ -11,19 +11,7 @@ function Square(props){
 }
 
 class Board extends React.Component {
-  handleClick(i){
-    const squares = this.state.squares.slice();
-    if(calculateWinner(squares) || squares[i]){
-      return;
-    }
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
-    this.setState({
-      squares: squares,
-      xIsNext: !this.state.xIsNext,
-    });
-  }
-
-  renderSquare(i) {
+    renderSquare(i) {
     return (
             <Square 
               value={this.props.squares[i]}
@@ -31,15 +19,29 @@ class Board extends React.Component {
             />
         );
   }
+  
+  // handleClick(i){
+  //   const squares = this.state.squares.slice();
+  //   if(calculateWinner(squares) || squares[i]){
+  //     return;
+  //   }
+  //   squares[i] = this.state.xIsNext ? 'X' : 'O';
+  //   this.setState({
+  //     squares: squares,
+  //     xIsNext: !this.state.xIsNext,
+  //   });
+  // }
+
+
 
   render() {
-    const winner = calculateWinner(this.state.squares);
-    let status;
-    if(winner){
-      status = 'Winner: ' + winner;
-    } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-    }
+    // const winner = calculateWinner(this.state.squares);
+    // let status;
+    // if(winner){
+    //   status = 'Winner: ' + winner;
+    // } else {
+    //   status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    // }
 
     return (
       <div>
